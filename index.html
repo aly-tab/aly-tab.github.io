@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Alyssa Tabith Site</title>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/integration
+                emailjs.init('mIxBDaK28deA4P48N');
+            })();
+        </script>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // generated five digit number for the contact_number variable
+                    this.contact_number.value = Math.random() * 100000 | 0;
+                    // IDs
+                    emailjs.sendForm('service_9pw23yp', 'template_u1173gd', this)
+                        .then(function() {
+                            console.log('SUCCESS!');
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
+        <script>
+            function Reset() {
+                document.getElementById("em").innerHTML = `
+                                                            <p class="notification">Sending...</p>
+                                                          `
+                setTimeout(() => {
+                    document.getElementById("contact").innerHTML = `
+                                                        <h2>Contact</h2>
+                                                        <form id="contact-form">
+                                                            <input type="hidden" name="contact_number">
+                                                            <input type="text" name="user_name" placeholder="Name" class="text-area">
+                                                            <input type="email" name="user_email" placeholder="Email" class="text-area">
+                                                            <textarea name="message" placeholder="Message" class="text-area"></textarea>
+                                                            <input type="submit" value="Send" onclick=Reset()>
+                                                            <div id="em">
+                                                                <p class="notification">Message Sent!</p>
+                                                            </div>
+                                                        </form>
+                                                     `
+                    
+                }, 1000);
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav class="nav-container">
+                <div class="menu">
+                    <span class="home"><a href="#home">Home</a></span>
+                    <span class="about"><a href="#about">About</a></span>
+                    <span class="portfolio"><a href="#portfolio">Portfolio</a></span>
+                    <span class="contact"><a href="#contact">Contact</a></span>
+                </div>
+            </nav>
+        </header>
+        <div id="home">
+            <div id="app"></div>
+
+            <a class="button-click" href="#about">
+                <button class="start-button">
+                    <div id="circle">
+                        <div class="text-and-arrow">
+                            <span>Explore</span>
+                            <div class="arrow-down">
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </a>
+        </div>
+
+        <div id="about" class="hidden">
+            <h2>About</h2>
+            <div class="content-container">
+                <div class="padding">
+                <div class="personal-image">
+                    <img src="./images/IMG_2748.JPG" class="p-img">
+                </div>
+                </div>
+                <div class="about-text-boxes" class="hidden">
+                    <div class="bio">
+                        <h3 class="hideme">Bio</h3>
+                            <p class="hideme">
+                                Graduate of Coding Dojo software engineering bootcamp and Harrisburg University of Science and Technology B.S. Interactive Media. I am passionate about coding and design, and I enjoy making websites that look and work exceptional. My workflow includes bringing together my artistic and technical skillsets to create web design and development solutions. I am highly interested in building truly unique projects.
+                            </p>
+                    </div>
+                    <div class="skills">
+                        <h3 class="hideme">Languages</h3>
+                            <div class="row" class="hideme">
+                                <p class="hideme">HTML</p>
+                                <p class="hideme">CSS</p>
+                                <p class="hideme">JavaScript</p>
+                                <p class="hideme">Java</p>
+                                <p class="hideme">Python</p>
+                            </div>
+                        <h3 class="hideme">Frameworks & Libraries</h3>
+                            <div class="row" class="hideme">
+                                <p class="hideme">React.js</p>
+                                <p class="hideme">Express.js</p>
+                                <p class="hideme">jQuery</p>
+                                <p class="hideme">Spring</p>
+                                <p class="hideme">Flask</p>
+                                <!---
+                                <p class="hideme">frame/lib_3</p>
+                                <p class="hideme">frame/lib_4</p>
+                                <p class="hideme">frame/lib_5</p>
+                                -->
+                            </div>
+                        <h3 class="hideme"> Technologies & Skills</h3>
+                            <div class="row" class="hideme">
+                                <p class="hideme">WordPress</p>
+                                <p class="hideme">Illustrator</p>
+                                <p class="hideme">Photoshop</p>
+                                <p class="hideme">Adobe XD</p>
+                                <p class="hideme">Sketching</p>
+                                <!---
+                                <p class="hideme">skill_5</p>   
+                                -->                            
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--
+        <div id="portfolio" class="hidden">
+            <h2>Portfolio</h2>
+            <div class="projects-container">
+                <div class="project-row-1">
+                    <div class="grouping-1">
+                        <div class="block">
+                            <img src="./images/pet-shelter.jpeg" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">Pet Shelter</h3>
+                            <p class="hov-p">MERN</p>
+                            <a class="hov-view-button" href="https://petshelter-01.herokuapp.com/" target="_blank">
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>         
+                    </div> 
+                    <div class="grouping-2">
+                        <div class="block">
+                            <img src="./images/bloggerzzz.png" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">Bloggerzzz</h3>
+                            <p class="hov-p">Java/Spring/MySQL</p>
+                            <a class="hov-view-button" href="https://bloggerzzz-2.herokuapp.com/" target="_blank">
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grouping-3">
+                        <div class="block">
+                            <img src="./images/vhshop.png" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">VHS Shop</h3>
+                            <p class="hov-p">Python/Flask/MySQL</p>
+                            <a class="hov-view-button" href="http://wpython11.pythonanywhere.com/" target="_blank">
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-row-2">
+                    <div class="grouping-4">
+                        <div class="block">
+                            <img src="./images/photoposter.png" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">Photo Poster (Repo Only)</h3>
+                            <p class="hov-p">MERN</p>
+                            <a class="hov-view-button" href="https://github.com/w-phil/PhotoPoster" target="_blank">
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>
+                    </div>
+                                   
+                    <div class="grouping-5">
+                        <div class="block">
+                            <img src="" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">Project title</h3>
+                            <p class="hov-p">Languages</p>
+                            <a class="hov-view-button" href="#"></a>
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>
+                     </div>
+                     <div class="grouping-6">
+                        <div class="block">
+                            <img src="" class="portfolio-image">
+                        </div>
+                        <div class="hover">
+                            <h3 class="hov-h3">Project title</h3>
+                            <p class="hov-p">Languages</p>
+                            <a class="hov-view-button" href="#">
+                            <div class="hover-circ">
+                                <div class="button-hov-box">
+                                    <span>View</span>
+                                </div>
+                            </div> 
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+-->
+        <div id="contact" class="hidden">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <input type="hidden" name="contact_number">
+                <input type="text" name="user_name" placeholder="Name" class="text-area">
+                <input type="email" name="user_email" placeholder="Email" class="text-area">
+                <textarea name="message" placeholder="Message" class="text-area"></textarea>
+                <input type="submit" value="Send" onclick=Reset()>
+                <div id="em">
+                </div>
+            </form>
+        </div>
+
+        <a class="second-button" href="#home">
+            <button id="bottom-button">
+                <div class="text-and-arrow">
+                    <div class="arrow-up">
+                    </div>
+                    <span>Top</span>
+                </div>
+            </button> 
+        </a>
+        <footer> 
+             <div>Copyright 2023 All Access Everything, LLC</div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+        <script src="./jquery-script.js"></script>
+        <script src="./script.js"></script>
+    </body>
+    
+</html>
